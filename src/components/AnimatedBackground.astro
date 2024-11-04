@@ -1,0 +1,117 @@
+---
+interface Props {
+  layer: 'front' | 'back';
+}
+
+const { layer } = Astro.props;
+---
+
+<div class={`animated-background ${layer}`}>
+  <div class="bg-line-container">
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+  </div>
+</div>
+
+<style>
+  .animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .animated-background.back {
+    z-index: 1;
+  }
+
+  .animated-background.front {
+    z-index: 3;
+  }
+
+  .bg-line-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+    width: 150vw;
+    height: 100vh;
+  }
+
+  .back .bg-line {
+    opacity: 0.15;
+    filter: blur(2px);
+  }
+
+  .front .bg-line {
+    opacity: 0.1;
+    filter: blur(1px);
+  }
+
+  .bg-line {
+    position: absolute;
+    height: 2vw;
+    min-height: 25px;
+    transform-origin: center;
+    width: 0;
+  }
+
+  .bg-line:nth-child(1) {
+    top: calc(50% - 60px);
+    background: var(--pink);
+    animation: expandLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+               breathe 8s ease-in-out infinite 2s;
+  }
+
+  .bg-line:nth-child(2) {
+    top: calc(50% - 20px);
+    background: var(--yellow);
+    animation: expandLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s,
+               breathe 8s ease-in-out infinite 2.5s;
+  }
+
+  .bg-line:nth-child(3) {
+    top: calc(50% + 20px);
+    background: var(--green);
+    animation: expandLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 1s,
+               breathe 8s ease-in-out infinite 3s;
+  }
+
+  .bg-line:nth-child(4) {
+    top: calc(50% + 60px);
+    background: var(--blue);
+    animation: expandLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 1.5s,
+               breathe 8s ease-in-out infinite 3.5s;
+  }
+
+  @keyframes expandLine {
+    0% {
+      width: 0;
+      left: 50%;
+    }
+    100% {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  @keyframes breathe {
+    0%, 100% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(0.5);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bg-line {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,177 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  logo: string;
+  link: string;
+  description?: string;
+}
+
+const { title, date, logo, link, description } = Astro.props;
+const logoLight = logo.replace(/\.(png|jpg|svg)$/, '_light.$1');
+---
+
+<div class="event-card">
+  <div class="event-content">
+    <div class="event-details">
+      <div class="event-logo-container">
+        <img src={logo} alt={`${title} Logo`} class="event-logo logo-dark" />
+        <img src={logoLight} alt={`${title} Logo`} class="event-logo logo-light" />
+      </div>
+      <div class="event-info">
+        <h3>{title}</h3>
+        <p class="date">{date}</p>
+        {description && <p class="description">{description}</p>}
+        <a href={link} class="event-link" target="_blank">
+          Visit Website
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .event-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-color-hover);
+  }
+
+  .event-content {
+    padding: var(--spacing-lg);
+  }
+
+  .event-details {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .event-logo-container {
+    flex-shrink: 0;
+    width: 150px;
+  }
+
+  .event-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .logo-light {
+    display: none;
+  }
+
+  .logo-dark {
+    display: block;
+  }
+
+  .event-info {
+    flex: 1;
+  }
+
+  h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .date {
+    color: var(--pink);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .description {
+    color: var(--text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .event-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    margin-left: -0.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .event-link:hover {
+    gap: 1rem;
+    background: var(--card-highlight);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .event-link:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  /* Dark mode styles */
+  :root[data-theme="dark"] .event-card {
+    background: var(--card-bg);
+  }
+
+  :root[data-theme="dark"] h3,
+  :root[data-theme="dark"] .description {
+    color: white;
+  }
+
+  :root[data-theme="dark"] .logo-light {
+    display: block;
+  }
+
+  :root[data-theme="dark"] .logo-dark {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .event-link {
+    color: var(--blue);
+  }
+
+  :root[data-theme="dark"] .event-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 640px) {
+    .event-details {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .event-logo-container {
+      width: 200px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .event-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .event-content {
+      padding: var(--spacing-md);
+    }
+
+    .event-link {
+      margin-left: 0;
+    }
+  }
+</style>

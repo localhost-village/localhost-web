@@ -1,0 +1,151 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  benefits?: string[];
+  color: 'blue' | 'pink';
+}
+
+const { title, description, benefits = [], color } = Astro.props;
+---
+
+<div class={`tier-card ${color}`}>
+  <div class="tier-content">
+    <h3>{title}</h3>
+    <p class="description">{description}</p>
+    {benefits.length > 0 && (
+      <ul class="benefits">
+        {benefits.map(benefit => (
+          <li>{benefit}</li>
+        ))}
+      </ul>
+    )}
+    <a href="mailto:info@localhostvillage.org" class="btn">Contact Us</a>
+  </div>
+</div>
+
+<style>
+  .tier-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .tier-card.blue::before {
+    background: var(--blue);
+  }
+
+  .tier-card.pink::before {
+    background: var(--pink);
+  }
+
+  .tier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px var(--shadow-color-hover);
+  }
+
+  .tier-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+  }
+
+  .benefits {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+    text-align: left;
+    flex: 1;
+  }
+
+  .benefits li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .benefits li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--pink);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: auto;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.3);
+    background: var(--pink);
+    color: white;
+  }
+
+  /* Light mode specific styles */
+  :root[data-theme="light"] h3,
+  :root[data-theme="light"] .description,
+  :root[data-theme="light"] .benefits li {
+    color: var(--text);
+  }
+
+  /* Dark mode specific styles */
+  :root[data-theme="dark"] h3,
+  :root[data-theme="dark"] .description,
+  :root[data-theme="dark"] .benefits li {
+    color: white;
+  }
+
+  :root[data-theme="dark"] .tier-card {
+    background: var(--card-bg);
+  }
+
+  :root[data-theme="dark"] .btn {
+    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.2);
+  }
+
+  :root[data-theme="dark"] .btn:hover {
+    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.4);
+  }
+</style>

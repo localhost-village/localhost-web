@@ -1,0 +1,25 @@
+:root {
+    --pink: #F72585;
+    --yellow: #FCBF49;
+    --green: #06D6A0;
+    --blue: #00a8ff;
+    --text: #1a1f36;
+    --background: #fafafa;
+    --container-width: 1200px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --border-radius: 10px;
+    --header-color: var(--pink); /* Unified header color */
+    --hero-height: 600px;
+    --hero-height-mobile: 400px;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-color-hover: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+    --background: #1a1f36;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-color-hover: rgba(0, 0, 0, 0.4);
+    --card-bg: #2d314d;
+}

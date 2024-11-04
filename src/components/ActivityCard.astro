@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="activity-card">
+  <h3>{title}</h3>
+  <p>{description}</p>
+</div>
+
+<style>
+  .activity-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--pink);
+  }
+
+  :global([data-theme="dark"]) .activity-card {
+    background: var(--card-bg);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+
+  .activity-card:nth-child(2) {
+    border-top-color: var(--yellow);
+  }
+
+  .activity-card:nth-child(3) {
+    border-top-color: var(--green);
+  }
+
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  :global([data-theme="dark"]) .activity-card:hover {
+    box-shadow: 0 8px 12px var(--shadow-color-hover);
+  }
+
+  h3 {
+    color: var(--blue);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+  }
+
+  :global([data-theme="dark"]) h3 {
+    color: #ffffff;
+  }
+
+  p {
+    color: var(--text);
+  }
+
+  :global([data-theme="dark"]) p {
+    color: #ffffff !important;
+  }
+</style>

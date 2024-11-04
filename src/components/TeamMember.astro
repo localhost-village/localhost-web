@@ -1,0 +1,120 @@
+---
+interface Props {
+  name: string;
+  company: string;
+  picture: string;
+  linkedIn: string;
+}
+
+const { name, company, picture, linkedIn } = Astro.props;
+---
+
+<div class="team-member">
+  <div class="member-image">
+    <img src={picture} alt={name} />
+  </div>
+  <div class="member-info">
+    <h4>{name}</h4>
+    <p>{company}</p>
+    <a href={linkedIn} target="_blank" class="social-link">
+      <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  .team-member {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all 0.3s ease;
+    max-width: 250px;
+  }
+
+  .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px var(--shadow-color-hover);
+  }
+
+  .member-image {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .member-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .team-member:hover .member-image img {
+    transform: scale(1.05);
+  }
+
+  .member-info {
+    padding: var(--spacing-md);
+    text-align: center;
+  }
+
+  h4 {
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+
+  .social-link {
+    color: var(--blue);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .social-link:hover {
+    color: var(--pink);
+    background: var(--card-highlight);
+  }
+
+  .linkedin-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Dark mode specific styles */
+  :root[data-theme="dark"] .team-member {
+    background: var(--card-bg);
+  }
+
+  :root[data-theme="dark"] h4,
+  :root[data-theme="dark"] p {
+    color: white;
+  }
+
+  :root[data-theme="dark"] p {
+    opacity: 0.9;
+  }
+
+  :root[data-theme="dark"] .social-link {
+    color: var(--blue);
+  }
+
+  :root[data-theme="dark"] .social-link:hover {
+    color: var(--pink);
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>

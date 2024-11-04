@@ -1,0 +1,42 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="header">
+  <div class="header-content">
+    <div class="container">
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--shadow-color);
+    /* Add subtle shadow for depth */
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+
+  .header-content {
+    height: 48px; /* Increased height to better accommodate the toggle */
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+</style>

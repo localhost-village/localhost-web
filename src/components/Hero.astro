@@ -1,0 +1,45 @@
+---
+import AnimatedBackground from './AnimatedBackground.astro';
+import AnimatedLogo from './AnimatedLogo.astro';
+---
+
+<section class="hero">
+  <AnimatedBackground layer="back" />
+  <div class="container">
+    <AnimatedLogo />
+  </div>
+  <AnimatedBackground layer="front" />
+</section>
+
+<style>
+  .hero {
+    height: 250px; /* Significantly reduced from 400px */
+    max-height: 30vh; /* Reduced from 50vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 32px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-sm); /* Reduced padding */
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 200px; /* Even smaller on mobile */
+    }
+  }
+</style>

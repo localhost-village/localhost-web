@@ -1,0 +1,236 @@
+---
+interface Role {
+  title: string;
+  icon: string;
+  description: string;
+  skills: string[];
+}
+
+const roles: Role[] = [
+  {
+    title: "Security Expert",
+    icon: "🔒",
+    description: "Help design and run security challenges",
+    skills: ["Penetration Testing", "CTF Experience", "Security Research"]
+  },
+  {
+    title: "Developer",
+    icon: "💻",
+    description: "Build tools and platforms for our activities",
+    skills: ["Frontend", "Backend", "Security Tools"]
+  },
+  {
+    title: "Hardware Hacker",
+    icon: "🔧",
+    description: "Create and maintain physical security challenges",
+    skills: ["Electronics", "3D Printing", "PCB Design"]
+  },
+  {
+    title: "Creative Mind",
+    icon: "🎨",
+    description: "Design visuals and experiences",
+    skills: ["Graphic Design", "UI/UX"]
+  }
+];
+---
+
+    <p class="section-intro">Be part of something exciting! We're always looking for passionate individuals to join our team.</p>
+
+    <div class="roles-grid">
+      {roles.map(role => (
+        <div class="role-card">
+          <div class="role-icon">{role.icon}</div>
+          <h3>{role.title}</h3>
+          <p>{role.description}</p>
+          <div class="skills">
+            {role.skills.map(skill => (
+              <span class="skill-tag">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="cta-container">
+      <a href="mailto:info@localhostvillage.org" class="cta-button">
+        Join the Team
+        <span class="arrow">→</span>
+      </a>
+      <p class="cta-subtext">or reach out on <a href="https://discord.gg/tPazDey5" class="discord-link">Discord</a> to learn more</p>
+    </div>
+
+
+<style>
+   .join-team {
+     padding: var(--spacing-lg) 0;
+     background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(250,250,250,0.9));
+   }
+
+   /* Dark mode background */
+   :global([data-theme="dark"]) .join-team {
+     background: linear-gradient(to bottom,
+       rgba(42, 47, 70, 0.9),
+       rgba(26, 31, 54, 0.9)
+     );
+   }
+
+   .section-intro {
+     text-align: center;
+     max-width: 600px;
+     margin: 0 auto var(--spacing-lg);
+     color: var(--text);
+     font-size: 1.2rem;
+   }
+
+   :global([data-theme="dark"]) .section-intro {
+     color: #ffffff !important;
+   }
+
+   /* Add white text color for all paragraphs in dark mode */
+   :global([data-theme="dark"]) .role-card p {
+     color: #ffffff !important;
+   }
+
+   .roles-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: var(--spacing-md);
+     margin-bottom: var(--spacing-lg);
+   }
+
+   .role-card {
+     background: white;
+     border-radius: var(--border-radius);
+     padding: var(--spacing-md);
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     border-top: 4px solid var(--pink);
+   }
+
+   :global([data-theme="dark"]) .role-card {
+     background: var(--card-bg);
+     box-shadow: 0 4px 6px var(--shadow-color);
+   }
+
+  .role-card:nth-child(2) {
+    border-top-color: var(--yellow);
+  }
+
+  .role-card:nth-child(3) {
+    border-top-color: var(--green);
+  }
+
+  .role-card:nth-child(4) {
+    border-top-color: var(--blue);
+  }
+
+  .role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  :global([data-theme="dark"]) .role-card:hover {
+    box-shadow: 0 8px 12px var(--shadow-color-hover);
+  }
+
+  .role-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .role-card h3 {
+    color: var(--text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  :global([data-theme="dark"]) .role-card h3 {
+    color: #ffffff;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  .skill-tag {
+    background: rgba(247, 37, 133, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: var(--pink);
+  }
+
+  :global([data-theme="dark"]) .skill-tag {
+    background: rgba(247, 37, 133, 0.2);
+    color: #ff89b7;  /* Lighter pink for better visibility */
+  }
+
+  .cta-container {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--pink);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.3);
+  }
+
+  :global([data-theme="dark"]) .cta-button:hover {
+    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.5);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  .cta-subtext {
+    margin-top: var(--spacing-md);
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  :global([data-theme="dark"]) .cta-subtext {
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  .discord-link {
+    color: #5865F2;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  :global([data-theme="dark"]) .discord-link {
+    color: #7289da; /* Lighter Discord blue for dark mode */
+  }
+
+  .discord-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .roles-grid {
+      grid-template-columns: 1fr;
+      padding: 0 var(--spacing-sm);
+    }
+  }
+</style>

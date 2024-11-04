@@ -1,0 +1,109 @@
+---
+---
+
+<div class="logo-container">
+  <img
+    src={import.meta.env.DEV ? "/localhost_village_logo_dark.svg" : "/public/localhost_village_logo_dark.svg"}
+    alt="LocalHost Village Logo"
+    class="main-logo"
+    id="themeLogo"
+  />
+  <p class="subline">The place for hacking,
+   lockpicking, networking and contests.</p>
+</div>
+
+<script>
+  // Script to handle logo switching
+  const themeLogo = document.getElementById('themeLogo');
+  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function updateLogoSource() {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const basePath = import.meta.env.DEV ? '' : '/public';
+    const logoVariant = isDarkMode ? 'light' : 'dark';
+    themeLogo.src = `${basePath}/localhost_village_logo_${logoVariant}.svg`;
+  }
+
+  // Update logo when theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        updateLogoSource();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+
+  // Initial logo setup
+  updateLogoSource();
+</script>
+
+<style>
+  .logo-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+  }
+
+  .main-logo {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: logoAppear 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .subline {
+    margin-top: 1rem;
+    color: #1a1f36;
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0;
+    animation: textAppear 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.5s;
+
+  }
+
+  /* Fix for dark mode subline */
+  :global([data-theme="dark"]) .subline {
+    color: #ffffff !important;
+    background-color: #1a1f36;
+    border-radius: 3px;
+  }
+
+  @keyframes logoAppear {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes textAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .logo-container:hover .main-logo {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: filter 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .logo-container:hover .main-logo {
+    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.1));
+  }
+</style>
