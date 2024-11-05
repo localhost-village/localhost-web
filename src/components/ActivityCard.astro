@@ -2,24 +2,32 @@
 interface Props {
   title: string;
   description: string;
+  imageUrl: string;
+  imageAlt: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, imageUrl, imageAlt } = Astro.props;
 ---
 
 <div class="activity-card">
-  <h3>{title}</h3>
-  <p>{description}</p>
+  <div class="image-container">
+    <img src={imageUrl} alt={imageAlt} />
+  </div>
+  <div class="content">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
 </div>
 
 <style>
   .activity-card {
     background: white;
     border-radius: var(--border-radius);
-    padding: var(--spacing-md);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid var(--pink);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   :global([data-theme="dark"]) .activity-card {
@@ -27,11 +35,11 @@ const { title, description } = Astro.props;
     box-shadow: 0 4px 6px var(--shadow-color);
   }
 
-  .activity-card:nth-child(2) {
+  .activity-card:nth-child(2) .content {
     border-top-color: var(--yellow);
   }
 
-  .activity-card:nth-child(3) {
+  .activity-card:nth-child(3) .content {
     border-top-color: var(--green);
   }
 
@@ -42,6 +50,29 @@ const { title, description } = Astro.props;
 
   :global([data-theme="dark"]) .activity-card:hover {
     box-shadow: 0 8px 12px var(--shadow-color-hover);
+  }
+
+  .image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .activity-card:hover .image-container img {
+    transform: scale(1.05);
+  }
+
+  .content {
+    padding: var(--spacing-md);
+    border-top: 4px solid var(--pink);
   }
 
   h3 {
@@ -56,6 +87,7 @@ const { title, description } = Astro.props;
 
   p {
     color: var(--text);
+    margin: 0;
   }
 
   :global([data-theme="dark"]) p {
