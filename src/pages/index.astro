@@ -59,7 +59,12 @@ const partners = [
       logo: "/partners/noibit-logo.jpg",
       logoDark: "/partners/noibit-logo_white.png",
       link: "https://noibit.com"
-    }
+    },
+    {
+      logo: "/partners/cyberladies_logo.png",
+      logoDark: "/partners/cyberladies_logo.png",
+        link: "https://www.cyberladies.cz/en/"
+        }
 ];
 
 const activities = [
@@ -79,6 +84,47 @@ const activities = [
     description: "A cable crimping contest offering hands-on experience. Everyone can participate - unless it's CAT8! Put your technical skills to the test in this time-based challenge.",
     imageUrl: "/activities/ethernet_master.png"
   }
+];
+
+const partner_activities = [
+  {
+    title: "Lockpicking",
+    description: "Get hands-on with physical security! Learn the art of lockpicking from Noibit experts using transparent practice locks to understand the mechanics, then challenge yourself with more complex locks. Perfect for both beginners and those looking to refine their skills.",
+    imageUrl: "/activities/noibit_lockpicking.jpg",
+    sponsor: {
+             logoUrl: "/partners/noibit-logo.jpg",
+              logoDark: "/partners/noibit-logo_white.png",
+            logoAlt: "Noibit logo",
+            link: "https://noibit.com"
+          }
+
+  },
+  {
+    title: "Retro Games",
+    description: "Join CyberLadies for a nostalgic gaming session! Challenge friends in classic retro games and test your incident response skills with 'Backdoors & Breaches' - a fast-paced tabletop card game that simulates cyber attacks and defense scenarios.",
+    imageUrl: "/activities/cyberladies.jpg",
+    sponsor: {
+            logoUrl: "/partners/cyberladies_logo.png",
+            logoDark: "/partners/cyberladies_logo.png",
+            logoAlt: "CyberLadies logo",
+            name: "CyberLadies",
+             size: "large",
+                 link: "https://www.cyberladies.cz/en/",
+
+          }
+  },
+  {
+    title: "Hot Takes",
+    description: "Dare to face the heat! Join ELLIO as you share your spiciest cybersecurity opinions while sampling progressively hotter sauces. Ten levels of heat await - can your takes stand up to the challenge? Warning: your tongue might regret this, but your stories will be legendary",
+    imageUrl: "/activities/hot_takes.jpg",
+    sponsor: {
+        logoUrl: "/partners/ELLIO_logo.png",
+        logoDark: "/partners/ELLIO_logo_white.png",
+        logoAlt: "ELLIO logo",
+        link: "https://ellio.tech"
+      }
+  },
+
 ];
 ---
 
@@ -114,6 +160,19 @@ const activities = [
         </div>
       </div>
     </section>
+
+
+        <!-- Partner Activities Section -->
+        <section class="activities">
+          <div class="container">
+            <h2>Our Partners Activities</h2>
+            <div class="activities-grid">
+              {partner_activities.map(activity => (
+                <ActivityCard {...activity} />
+              ))}
+            </div>
+          </div>
+        </section>
 
 
 

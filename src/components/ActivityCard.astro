@@ -4,9 +4,16 @@ interface Props {
   description: string;
   imageUrl: string;
   imageAlt: string;
+  sponsor?: {
+    logoUrl: string;
+    logoDark?: string;
+    logoAlt: string;
+    link: string; // Added link property
+    size?: 'normal' | 'large';
+  };
 }
 
-const { title, description, imageUrl, imageAlt } = Astro.props;
+const { title, description, imageUrl, imageAlt, sponsor } = Astro.props;
 ---
 
 <div class="activity-card">
@@ -14,8 +21,21 @@ const { title, description, imageUrl, imageAlt } = Astro.props;
     <img src={imageUrl} alt={imageAlt} />
   </div>
   <div class="content">
-    <h3>{title}</h3>
-    <p>{description}</p>
+    <div class="text-content">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+
+    {sponsor && (
+      <div class="sponsor-wrapper">
+        <a href={sponsor.link} target="_blank" rel="noopener" class={`sponsor-logo-container ${sponsor.size === 'large' ? 'large' : ''}`}>
+          <img src={sponsor.logoUrl} alt={sponsor.logoAlt} class="sponsor-logo logo-light" />
+          {sponsor.logoDark && (
+            <img src={sponsor.logoDark} alt={sponsor.logoAlt} class="sponsor-logo logo-dark" />
+          )}
+        </a>
+      </div>
+    )}
   </div>
 </div>
 
@@ -28,6 +48,7 @@ const { title, description, imageUrl, imageAlt } = Astro.props;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   :global([data-theme="dark"]) .activity-card {
@@ -73,6 +94,13 @@ const { title, description, imageUrl, imageAlt } = Astro.props;
   .content {
     padding: var(--spacing-md);
     border-top: 4px solid var(--pink);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .text-content {
+    margin-bottom: var(--spacing-lg);
   }
 
   h3 {
@@ -92,5 +120,67 @@ const { title, description, imageUrl, imageAlt } = Astro.props;
 
   :global([data-theme="dark"]) p {
     color: #ffffff !important;
+  }
+
+  /* Sponsor styles */
+  .sponsor-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sponsor-logo-container {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .sponsor-logo-container:hover {
+    transform: translateY(-2px);
+  }
+
+  .sponsor-logo-container.large {
+    height: 3.5rem;
+  }
+
+  .sponsor-logo {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logo-dark {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .logo-light {
+    display: none;
+  }
+
+  :global([data-theme="dark"]) .logo-dark {
+    display: block;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sponsor-logo-container {
+      height: 2rem;
+    }
+
+    .sponsor-logo-container.large {
+      height: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sponsor-logo-container {
+      height: 1.75rem;
+    }
+
+    .sponsor-logo-container.large {
+      height: 2.5rem;
+    }
   }
 </style>
