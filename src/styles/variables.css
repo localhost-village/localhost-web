@@ -15,6 +15,10 @@
     --hero-height-mobile: 400px;
     --shadow-color: rgba(0, 0, 0, 0.2);
     --shadow-color-hover: rgba(0, 0, 0, 0.3);
+
+    --sponsor-yellow: #FCBF49;
+    --sponsor-blue: #00a8ff;
+    --sponsor-green: #06D6A0;
 }
 
 [data-theme="dark"] {

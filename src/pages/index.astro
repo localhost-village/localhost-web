@@ -196,35 +196,59 @@ const partner_activities = [
 
     <div class="sponsorship-grid">
       <SponsorshipTier
-        title="Tier I"
-        description="Brand one of our signature activities and get maximum visibility at BSides Prague"
+        title="Gold Sponsor"
+        description="Support BSides Prague with basic brand visibility package"
         benefits={[
-          "Brand one activity",
-          "Logo placement on all village materials",
-          "Logo placement on village website",
-          "Logo placement on BSides Prague website",
-          "Logo placement on village at the event",
+          "Pre/During/Post-event social media mentions",
+          "Logo placement on village/event graphics",
+          "Logo placement on village/event website",
+          "Logo placement in village/event venue",
           "Special mention during the event",
-          "Promotional space at the event",
-          "Free tickets to the event for the booth staff",
-          "1 invite to the BSides Prague Speaker Dinner",
+          "2 free event tickets",
           "Provide branded swag and giveaways",
+          "1 job position on event page"
+        ]}
+        color="yellow"
+      />
+      <SponsorshipTier
+        title="Platinum Sponsor"
+        description="Get enhanced visibility and participation opportunities"
+        benefits={[
+          "Pre/During/Post-event social media mentions",
+          "Logo placement on village/event graphics",
+          "Logo placement on village/event website",
+          "Logo placement in village/event venue",
+          "Special mention during the event",
+          "Opportunity to create own activity/booth",
+          "6m² promotional space",
+          "Company logo on event/village T-shirts",
+          "2 free event tickets",
+          "1 seat at Speaker & Guest Dinner",
+          "Provide branded swag and giveaways",
+          "2 job positions on event page",
+          "Add company-related task to CTF/hackathon"
         ]}
         color="blue"
       />
       <SponsorshipTier
-        title="Tier II"
-        description="Support our participation at BSides Prague and help make it happen"
+        title="Emerald Sponsor"
+        description="Maximum visibility and engagement at BSides Prague"
         benefits={[
-          "Logo placement on all village materials",
-          "Logo placement on village website",
-          "Logo placement on BSides Prague website",
-          "Logo placement on village at the event",
-          "Promotional space at the event",
-          "Free tickets to the event for the booth staff",
+          "Pre/During/Post-event social media mentions",
+          "Logo placement on village/event graphics",
+          "Logo placement on village/event website",
+          "Logo placement in village/event venue",
+          "Special mention during the event",
+          "Opportunity to create own activity/booth",
+          "6m² promotional space",
+          "Company logo on event/village T-shirts",
+          "6 free event tickets",
+          "2 seats at Speaker & Guest Dinner",
           "Provide branded swag and giveaways",
+          "6 job positions on event page",
+          "Add company-related task to CTF/hackathon"
         ]}
-        color="pink"
+        color="green"
       />
     </div>
   </div>
@@ -315,13 +339,14 @@ const partner_activities = [
   }
 
   .sponsorship-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    padding: 0 var(--spacing-md);
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: -1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
 
   .hero {
     min-height: 30vh;

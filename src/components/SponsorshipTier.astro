@@ -3,7 +3,7 @@ interface Props {
   title: string;
   description: string;
   benefits?: string[];
-  color: 'blue' | 'pink';
+  color: 'yellow' | 'blue' | 'green';
 }
 
 const { title, description, benefits = [], color } = Astro.props;
@@ -20,7 +20,9 @@ const { title, description, benefits = [], color } = Astro.props;
         ))}
       </ul>
     )}
-    <a href="mailto:info@localhostvillage.org" class="btn">Contact Us</a>
+    <div class="button-wrapper">
+      <a href="mailto:info@localhostvillage.org" class="btn">Contact Us</a>
+    </div>
   </div>
 </div>
 
@@ -35,9 +37,17 @@ const { title, description, benefits = [], color } = Astro.props;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    height: 100%;
+    width: calc(33.333% - 2rem);
+    margin: 1rem;
+    /* Set a fixed height or min-height if needed */
+    min-height: 600px; /* Adjust this value based on your content */
+    display: flex;
+  }
+
+  .tier-content {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .tier-card::before {
@@ -49,31 +59,75 @@ const { title, description, benefits = [], color } = Astro.props;
     height: 4px;
   }
 
-  .tier-card.blue::before {
-    background: var(--blue);
+  .tier-card.yellow::before {
+    background: var(--sponsor-yellow, #FFD700);
   }
 
-  .tier-card.pink::before {
-    background: var(--pink);
+  .tier-card.blue::before {
+    background: var(--sponsor-blue, #4169E1);
+  }
+
+  .tier-card.green::before {
+    background: var(--sponsor-green, #50C878);
   }
 
   .tier-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 32px var(--shadow-color-hover);
+    border-color: currentColor;
   }
 
-  .tier-content {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
+  .tier-card.yellow:hover { border-color: var(--sponsor-yellow, #FFD700); }
+  .tier-card.blue:hover { border-color: var(--sponsor-blue, #4169E1); }
+  .tier-card.green:hover { border-color: var(--sponsor-green, #50C878); }
+
+/* Change this part of your style section */
 
   h3 {
     margin-bottom: var(--spacing-md);
     font-size: 2rem;
     font-weight: 700;
+    background: linear-gradient(135deg, var(--text) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .yellow h3 { --accent-color: var(--sponsor-yellow, #FFD700); }
+  .blue h3 { --accent-color: var(--sponsor-blue, #4169E1); }
+  .green h3 { --accent-color: var(--sponsor-green, #50C878); }
+
+  /* Light mode gradients */
+  :root[data-theme="light"] .yellow h3 {
+    background: linear-gradient(135deg, var(--text) 0%, var(--sponsor-yellow, #FFD700) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="light"] .blue h3 {
+    background: linear-gradient(135deg, var(--text) 0%, var(--sponsor-blue, #4169E1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="light"] .green h3 {
+    background: linear-gradient(135deg, var(--text) 0%, var(--sponsor-green, #50C878) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Dark mode gradients */
+  :root[data-theme="dark"] .yellow h3 {
+    background: linear-gradient(135deg, white 0%, var(--sponsor-yellow, #FFD700) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="dark"] .blue h3 {
+    background: linear-gradient(135deg, white 0%, var(--sponsor-blue, #4169E1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="dark"] .green h3 {
+    background: linear-gradient(135deg, white 0%, var(--sponsor-green, #50C878) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .description {
@@ -91,46 +145,77 @@ const { title, description, benefits = [], color } = Astro.props;
   }
 
   .benefits li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
+    padding: 0.75rem 0;
+    padding-left: 2rem;
     position: relative;
+    line-height: 1.4;
   }
 
   .benefits li::before {
-    content: '→';
+    content: '✓';
     position: absolute;
-    left: 0;
-    color: var(--pink);
+    left: 0.5rem;
+    font-weight: bold;
+  }
+
+  .yellow .benefits li::before { color: var(--sponsor-yellow, #FFD700); }
+  .blue .benefits li::before { color: var(--sponsor-blue, #4169E1); }
+  .green .benefits li::before { color: var(--sponsor-green, #50C878); }
+
+  .button-wrapper {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
   }
 
   .btn {
     display: inline-block;
     padding: 1rem 2rem;
-    background: var(--pink);
     color: white;
     text-decoration: none;
     border-radius: 30px;
     transition: all 0.3s ease;
     font-weight: 600;
     font-size: 1.1rem;
-    margin-top: auto;
+    width: 80%; /* Make buttons the same width */
   }
+
+  .yellow .btn {
+    background: var(--sponsor-yellow, #FFD700);
+    color: var(--text);
+  }
+  .blue .btn { background: var(--sponsor-blue, #4169E1); }
+  .green .btn { background: var(--sponsor-green, #50C878); }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.3);
-    background: var(--pink);
-    color: white;
+    filter: brightness(110%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
-  /* Light mode specific styles */
+  /* Responsive Layout */
+  @media (max-width: 1200px) {
+    .tier-card {
+      width: calc(50% - 2rem);
+      min-height: 550px; /* Adjust for tablet view */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tier-card {
+      width: 100%;
+      margin: 1rem 0;
+      min-height: auto; /* Let it adapt to content on mobile */
+      height: auto;
+    }
+  }
+
+  /* Light/Dark Mode */
   :root[data-theme="light"] h3,
   :root[data-theme="light"] .description,
   :root[data-theme="light"] .benefits li {
     color: var(--text);
   }
 
-  /* Dark mode specific styles */
   :root[data-theme="dark"] h3,
   :root[data-theme="dark"] .description,
   :root[data-theme="dark"] .benefits li {
@@ -142,10 +227,10 @@ const { title, description, benefits = [], color } = Astro.props;
   }
 
   :root[data-theme="dark"] .btn {
-    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   :root[data-theme="dark"] .btn:hover {
-    box-shadow: 0 4px 12px rgba(247, 37, 133, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 </style>
