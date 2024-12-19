@@ -112,56 +112,28 @@ const activities = [
     imageUrl: "/activities/hackers_jeopardy.png"
 
   },
-  {
-    title: "Lockpicking Fence",
-    description: "A literal wall with a variety of locks. Your mission: help clear the fence by the end of the conference. Test your skills against different lock types and difficulties.",
-    imageUrl: "/activities/lockpicking_fence.png"
-  },
+
   {
     title: "Ethernet Master",
     description: "A cable crimping contest offering hands-on experience. Everyone can participate - unless it's CAT8! Put your technical skills to the test in this time-based challenge.",
     imageUrl: "/activities/ethernet_master.png"
-  }
+  },
+   {
+      title: "Lockpicking",
+      description: "Get hands-on with physical security! Learn the art of lockpicking from Noibit experts using transparent practice locks to understand the mechanics, then challenge yourself with more complex locks. Perfect for both beginners and those looking to refine their skills.",
+      imageUrl: "/activities/noibit_lockpicking.jpg",
+
+    },
+
+    {
+      title: "Hot Takes",
+      description: "Dare to face the heat! Join ELLIO as you share your spiciest cybersecurity opinions while sampling progressively hotter sauces. Ten levels of heat await - can your takes stand up to the challenge? Warning: your tongue might regret this, but your stories will be legendary",
+      imageUrl: "/activities/hot_takes.jpg",
+    },
 ];
 
 const partner_activities = [
-  {
-    title: "Lockpicking",
-    description: "Get hands-on with physical security! Learn the art of lockpicking from Noibit experts using transparent practice locks to understand the mechanics, then challenge yourself with more complex locks. Perfect for both beginners and those looking to refine their skills.",
-    imageUrl: "/activities/noibit_lockpicking.jpg",
-    sponsor: {
-            logoUrl: "/partners/noibit-logo.jpg",
-            logoDark: "/partners/noibit-logo_white.png",
-            logoAlt: "Noibit logo",
-            link: "https://noibit.com"
-          }
 
-  },
-  {
-    title: "Backdoors & Breaches",
-    description: "Join CyberLadies for a  gaming session! Challenge friends and test your incident response skills with 'Backdoors & Breaches' - a fast-paced tabletop card game that simulates cyber attacks and defense scenarios.",
-    imageUrl: "/activities/cyberladies.jpg",
-    sponsor: {
-            logoUrl: "/partners/cyberladies_logo.png",
-            logoDark: "/partners/cyberladies_logo.png",
-            logoAlt: "CyberLadies logo",
-            name: "CyberLadies",
-             size: "large",
-                 link: "https://www.cyberladies.cz/en/",
-
-          }
-  },
-  {
-    title: "Hot Takes",
-    description: "Dare to face the heat! Join ELLIO as you share your spiciest cybersecurity opinions while sampling progressively hotter sauces. Ten levels of heat await - can your takes stand up to the challenge? Warning: your tongue might regret this, but your stories will be legendary",
-    imageUrl: "/activities/hot_takes.jpg",
-    sponsor: {
-        logoUrl: "/partners/ELLIO_logo.png",
-        logoDark: "/partners/ELLIO_logo_white.png",
-        logoAlt: "ELLIO logo",
-        link: "https://ellio.tech"
-      }
-  },
 
 ];
 ---
@@ -200,31 +172,6 @@ const partner_activities = [
     </section>
 
 
-        <!-- Partner Activities Section -->
-        <section class="activities">
-          <div class="container">
-            <h2>Our Partners Activities</h2>
-            <div class="activities-grid">
-              {partner_activities.map(activity => (
-                <ActivityCard {...activity} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-
-
-    <!-- Partners Section -->
-    <section class="partners">
-      <div class="container">
-        <h2>Our Partners</h2>
-        <div class="partners-grid">
-          {partners.map(partner => (
-            <Partner {...partner} />
-          ))}
-        </div>
-      </div>
-    </section>
 
 
 <section class="sponsorship">
