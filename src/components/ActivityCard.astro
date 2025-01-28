@@ -4,16 +4,20 @@ interface Props {
   description: string;
   imageUrl: string;
   imageAlt: string;
+  button?: {
+    text: string;
+    link: string;
+  };
   sponsor?: {
     logoUrl: string;
     logoDark?: string;
     logoAlt: string;
-    link: string; // Added link property
+    link: string;
     size?: 'normal' | 'large';
   };
 }
 
-const { title, description, imageUrl, imageAlt, sponsor } = Astro.props;
+const { title, description, imageUrl, imageAlt, button, sponsor } = Astro.props;
 ---
 
 <div class="activity-card">
@@ -26,16 +30,34 @@ const { title, description, imageUrl, imageAlt, sponsor } = Astro.props;
       <p>{description}</p>
     </div>
 
-    {sponsor && (
-      <div class="sponsor-wrapper">
-        <a href={sponsor.link} target="_blank" rel="noopener" class={`sponsor-logo-container ${sponsor.size === 'large' ? 'large' : ''}`}>
-          <img src={sponsor.logoUrl} alt={sponsor.logoAlt} class="sponsor-logo logo-light" />
-          {sponsor.logoDark && (
-            <img src={sponsor.logoDark} alt={sponsor.logoAlt} class="sponsor-logo logo-dark" />
-          )}
+    <div class="actions-wrapper">
+      {button && (
+        <a
+          href={button.link}
+          class={`button 'button-primary'}`}
+          target="_blank"
+          rel="noopener"
+        >
+          {button.text}
         </a>
-      </div>
-    )}
+      )}
+
+      {sponsor && (
+        <div class="sponsor-wrapper">
+          <a
+            href={sponsor.link}
+            target="_blank"
+            rel="noopener"
+            class={`sponsor-logo-container ${sponsor.size === 'large' ? 'large' : ''}`}
+          >
+            <img src={sponsor.logoUrl} alt={sponsor.logoAlt} class="sponsor-logo logo-light" />
+            {sponsor.logoDark && (
+              <img src={sponsor.logoDark} alt={sponsor.logoAlt} class="sponsor-logo logo-dark" />
+            )}
+          </a>
+        </div>
+      )}
+    </div>
   </div>
 </div>
 
@@ -61,7 +83,7 @@ const { title, description, imageUrl, imageAlt, sponsor } = Astro.props;
   }
 
   .activity-card:nth-child(3) .content {
-    border-top-color: var(--green);
+    border-top-color: var(--blue);
   }
 
   .activity-card:hover {
@@ -122,9 +144,60 @@ const { title, description, imageUrl, imageAlt, sponsor } = Astro.props;
     color: #ffffff !important;
   }
 
+  /* Actions wrapper */
+  .actions-wrapper {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  /* Button styles */
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    width: fit-content;
+    background-color: var(--pink);
+    color: white;
+  }
+
+  .activity-card:nth-child(2) .button {
+    background-color: var(--yellow);
+  }
+
+  .activity-card:nth-child(3) .button {
+    background-color: var(--blue);
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+  }
+
+  .activity-card:nth-child(2) .button-secondary {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  .activity-card:nth-child(3) .button-secondary {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
   /* Sponsor styles */
   .sponsor-wrapper {
-    margin-top: auto;
     display: flex;
     justify-content: center;
   }

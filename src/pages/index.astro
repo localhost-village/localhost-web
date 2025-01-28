@@ -8,6 +8,7 @@ import Footer from '../components/Footer.astro';
 import ActivityCard from '../components/ActivityCard.astro';
 import SponsorshipTier from '../components/SponsorshipTier.astro';
 import JoinTeam from '../components/JoinTeam.astro';
+import SponsorSection from '../components/Sponsors.astro';
 const upcomingEvents = [
   {
     title: "BSides Prague",
@@ -31,6 +32,12 @@ const teamMembers = [
       company: "AI EdgeLabs",
       picture: "/team/mz.png",
       linkedIn: "https://www.linkedin.com/in/marko-zbirka-ba4566b1/"
+    },
+    {
+    name: "Daniel B.",
+    picture: "/team/db.jpeg",
+    company: "Mycroft Mind",
+    linkedIn: "https://www.linkedin.com/in/danielbdot/"
     },
      {
         name: "Danny Henderson Jr.",
@@ -56,32 +63,16 @@ const teamMembers = [
         company: "CTU",
         linkedIn: "https://www.linkedin.com/in/ond%C5%99ej-hummel-a2a4622a2/"
         },
-        {
-        name: "Tomáš Jandák",
-        picture: "/team/tj.jpg",
-        company: "Noibit",
-        linkedIn: "https://www.linkedin.com/in/tom%C3%A1%C5%A1-jand%C3%A1k-715399164/"
-        },
-        {
-        name: "Oldřich Bílek",
-        picture: "/team/ob.jpg",
-        company: "Noibit",
-        linkedIn: "https://www.linkedin.com/in/old%C5%99ich-b%C3%ADlek-922713200/"
-        },
+
          {
             name: "Diana Průšová",
             picture: "/team/dp.jpg",
             linkedIn: "https://www.linkedin.com/in/diana-prusova/"
-                },
+         },
         {
         name: "Lukáš Kavalír",
         linkedIn: "https://www.linkedin.com/in/luk%C3%A1%C5%A1-k-a7612a326/"
 
-        },
-        {
-        name: "Jan Hradecký",
-        company: "Luxonis",
-        linkedIn: "https://www.linkedin.com/in/jan-hradeck%C3%BD-b555482b8/"
         },
 
 ];
@@ -109,8 +100,11 @@ const activities = [
   {
     title: "Hackerdy",
     description: "\"Hackers Answer In The Form Of A Question\" - A competitive activity that encourages learning and showcases the range of participants' expertise.",
-    imageUrl: "/activities/hackers_jeopardy.png"
-
+    imageUrl: "/activities/hackers_jeopardy.png",
+    button: {
+      text: "Call for Questions",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSeI9_07J9M8Vrkcvdgdw7G4tlkbRk98nLtMDDFUAu170wwoWQ/viewform"
+    }
   },
 
   {
@@ -122,6 +116,10 @@ const activities = [
       title: "Hot Takes",
       description: "Dare to face the heat! Join ELLIO as you share your spiciest cybersecurity opinions while sampling progressively hotter sauces. Ten levels of heat await - can your takes stand up to the challenge? Warning: your tongue might regret this, but your stories will be legendary",
       imageUrl: "/activities/hot_takes.jpg",
+      button: {
+        text: "Call for Hot Takes",
+        link: "https://app.sli.do/event/mowSK4igPhNZNNLchPzsME/live/questions"
+      }
     },
 ];
 
@@ -167,6 +165,14 @@ const partner_activities = [
 
 
 
+<!-- Sponsors Section -->
+<section class="activities">
+      <div class="container">
+        <SponsorSection />
+        </div>
+        </section>
+
+<!--
 <section class="sponsorship">
   <div class="container">
     <h2>Call for Sponsors</h2>
@@ -231,22 +237,15 @@ const partner_activities = [
     </div>
   </div>
 </section>
+-->
 
 
 
 
-    <!-- Volunteer Section -->
-
-<section class="join-team">
-  <div class="container">
-    <h2>Join Our Team</h2>
-         <JoinTeam />
-    </div>
-    </section>
 
 
     <!-- Team Section -->
-    <!-- <section class="team">
+     <section class="team">
       <div class="container">
         <h2>Meet Our Team</h2>
         <div class="team-grid">
@@ -257,7 +256,15 @@ const partner_activities = [
         <div class="team-footer" > + more anonymous members </div>
       </div>
     </section>
-   -->
+
+    <!-- Volunteer Section -->
+
+<section class="join-team">
+  <div class="container">
+    <h2>Join Our Team</h2>
+         <JoinTeam />
+    </div>
+    </section>
 
     <Footer />
   </main>

@@ -1,0 +1,241 @@
+---
+// SponsorSection.astro
+interface Sponsor {
+  name: string;
+  logo: {
+    light: string;
+    dark?: string;
+  };
+  link: string;
+}
+
+const sponsors: Sponsor[] = [
+  {
+    name: 'Censys',
+    logo: {
+      light: '/partners/censys-logo.png',
+      dark: '/partners/censys.png'
+    },
+    link: 'https://censys.com/',
+  },
+  {
+    name: 'ELLIO',
+    logo: {
+      light: '/partners/ELLIO_logo.png',
+      dark: '/partners/ELLIO_logo_white.png'
+    },
+    link: 'https://ellio.tech/',
+  }
+];
+---
+
+<section class="sponsors">
+  <div class="container">
+    <h2>Our Amazing Sponsors</h2>
+    <div class="sponsors-card">
+      <div class="sponsors-grid">
+        {sponsors.map((sponsor) => (
+          <div class="sponsor-card">
+            <div class="logo-container">
+              <a href={sponsor.link} target="_blank" rel="noopener" class="logo-link">
+                <div class="logo-wrapper">
+                  <img
+                    src={sponsor.logo.light}
+                    alt={sponsor.name}
+                    class="sponsor-logo logo-light"
+                  />
+                  {sponsor.logo.dark && (
+                    <img
+                      src={sponsor.logo.dark}
+                      alt={sponsor.name}
+                      class="sponsor-logo logo-dark"
+                    />
+                  )}
+                </div>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="cta-container">
+      <a
+        href="https://www.linkedin.com/in/iliushin/"
+        target="_blank"
+        rel="noopener"
+        class="cta-button"
+      >
+        Interested in Sponsorship?
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sponsors {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--header-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+  }
+
+  :global([data-theme="dark"]) h2 {
+    color: var(--pink);
+  }
+
+  .sponsors-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .sponsors-card {
+    background: var(--card-bg);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .sponsor-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs);
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsor-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .logo-container {
+    width: 100%;
+    max-width: 300px;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sponsor-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 250px;
+    height: 80px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-dark {
+    opacity: 0;
+  }
+
+  :global([data-theme="dark"]) .logo-light {
+    opacity: 0;
+  }
+
+  :global([data-theme="dark"]) .logo-dark {
+    opacity: 1;
+  }
+
+  /* CTA Button styles */
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    background-color: var(--pink);
+    color: white;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+
+  :global([data-theme="dark"]) .cta-button {
+    background-color: var(--pink);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .logo-wrapper {
+      height: 60px;
+    }
+
+    .sponsor-logo {
+      height: 60px;
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sponsor-logo {
+      max-width: 180px;
+    }
+
+    .logo-wrapper {
+      height: 50px;
+    }
+
+    .sponsor-logo {
+      height: 50px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
