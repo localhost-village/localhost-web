@@ -1,0 +1,374 @@
+---
+interface TechnicalSponsor {
+  name: string;
+  category: string;
+  description: string;
+  logo: {
+    light: string;
+    dark?: string;
+  };
+  link: string;
+  isPlaceholder?: boolean;
+}
+
+const technicalSponsors: TechnicalSponsor[] = [
+  {
+    name: '3D Printer Sponsor',
+    category: '3D Printer Provider',
+    description: 'Help us create amazing multi-material prototypes',
+    logo: {
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
+    },
+    link: '#',
+    isPlaceholder: true
+  },
+  {
+    name: 'Filament Sponsor',
+    category: 'Filament Provider',
+    description: 'Supply quality materials for our 3D printing projects',
+    logo: {
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
+    },
+    link: '#',
+    isPlaceholder: true
+  },
+  {
+    name: 'Cloud Sponsor',
+    category: 'Cloud/VPS Provider',
+    description: 'Power our infrastructure and cloud deployments',
+    logo: {
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
+    },
+    link: '#',
+    isPlaceholder: true
+  },
+  {
+    name: 'Rack Sponsor',
+    category: 'Rack Provider',
+    description: 'Help us organize and showcase our hardware setup',
+    logo: {
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
+    },
+    link: '#',
+    isPlaceholder: true
+  },
+  {
+    name: 'SBC Sponsor',
+    category: 'SBC Provider',
+    description: 'Provide computing power for our edge devices and as a giveaway for attendees',
+    logo: {
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
+    },
+    link: '#',
+    isPlaceholder: true
+  },
+  {
+      name: 'Printer Sponsor',
+      category: 'Printer Sponsor',
+      description: 'Provide amazing quality prints for our village on site (stickers, banners, textile wall prints, etc.)',
+      logo: {
+        light: '/partners/placeholder-logo.png',
+        dark: '/partners/placeholder-logo-white.png'
+      },
+      link: '#',
+      isPlaceholder: true
+    }
+];
+---
+
+<section class="technical-sponsors">
+  <div class="container">
+    <h2>Technical Sponsorship Opportunities</h2>
+    <p class="section-description">
+      Join us in building amazing technical demonstrations and projects. We're looking for partners in these key areas:
+    </p>
+    <div class="sponsors-card">
+      <div class="sponsors-grid">
+        {technicalSponsors.map((sponsor) => (
+          <div class={`sponsor-card ${sponsor.isPlaceholder ? 'placeholder' : ''}`}>
+            <div class="content-container">
+              <h3 class="category">{sponsor.category}</h3>
+              <div class="logo-wrapper">
+                <img
+                  src={sponsor.logo.light}
+                  alt={sponsor.name}
+                  class="sponsor-logo logo-light"
+                />
+                {sponsor.logo.dark && (
+                  <img
+                    src={sponsor.logo.dark}
+                    alt={sponsor.name}
+                    class="sponsor-logo logo-dark"
+                  />
+                )}
+                {sponsor.isPlaceholder && (
+                  <div class="placeholder-text">Your Company Here</div>
+                )}
+              </div>
+              <p class="description">{sponsor.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="cta-container">
+      <a
+        href="https://www.linkedin.com/in/iliushin/"
+        target="_blank"
+        rel="noopener"
+        class="cta-button"
+      >
+        Become a Technical Sponsor
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .technical-sponsors {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--header-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 2.5rem;
+  }
+
+  .section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--text-color);
+    font-size: 1.1rem;
+  }
+
+  :global([data-theme="dark"]) .section-description {
+    color: white;
+  }
+
+  :global([data-theme="dark"]) h2 {
+    color: var(--pink);
+  }
+
+  .sponsors-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .sponsors-card {
+    background: var(--card-bg);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .sponsor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    transition: transform 0.3s ease;
+    padding: var(--spacing-md);
+  }
+
+  .sponsor-card.placeholder {
+    border: 2px dashed var(--pink);
+    border-radius: var(--border-radius);
+    background: rgba(var(--pink-rgb), 0.05);
+  }
+
+  .sponsor-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .category {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--header-color);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  :global([data-theme="dark"]) .category {
+    color: var(--pink);
+  }
+
+  .logo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-top: var(--spacing-sm);
+  }
+
+  :global([data-theme="dark"]) .description {
+    color: white;
+  }
+
+  .placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--pink);
+    text-align: center;
+    width: 100%;
+  }
+
+  .sponsor-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 200px;
+    height: 80px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-dark {
+    opacity: 0;
+  }
+
+  :global([data-theme="dark"]) .logo-light {
+    opacity: 0;
+  }
+
+  :global([data-theme="dark"]) .logo-dark {
+    opacity: 1;
+  }
+
+  .placeholder .sponsor-logo {
+    display: none;
+  }
+
+  /* CTA Button styles */
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    background-color: var(--pink);
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+
+  :global([data-theme="dark"]) .cta-button {
+    background-color: var(--pink);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .sponsors-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .logo-wrapper {
+      height: 60px;
+    }
+
+    .sponsor-logo {
+      height: 60px;
+      max-width: 180px;
+    }
+
+    .placeholder-text {
+      font-size: 1.1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sponsors-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sponsor-card {
+      padding: var(--spacing-sm);
+    }
+
+    .logo-wrapper {
+      height: 50px;
+    }
+
+    .sponsor-logo {
+      height: 50px;
+      max-width: 160px;
+    }
+
+    .category {
+      font-size: 1.1rem;
+    }
+
+    .description {
+      font-size: 0.9rem;
+    }
+
+    .placeholder-text {
+      font-size: 1rem;
+    }
+  }
+</style>
