@@ -22,8 +22,6 @@ export default defineConfig({
             enabled: true,
             host: "https://elliotech.matomo.cloud/",
             setCookieDomain: "localhostvillage.org",
-            trackerUrl: "js/", // defaults to matomo.php
-            srcUrl: "js/", // defaults to matomo.js
             siteId: 8,
             heartBeatTimer: 5,
             disableCookies: true,
