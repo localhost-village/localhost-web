@@ -1,5 +1,4 @@
 ---
-// SponsorSection.astro
 interface Sponsor {
   name: string;
   logo: {
@@ -7,16 +6,18 @@ interface Sponsor {
     dark?: string;
   };
   link: string;
+  isPlaceholder?: boolean;
 }
 
 const sponsors: Sponsor[] = [
   {
-    name: 'Censys',
+    name: 'Your Company',
     logo: {
-      light: '/partners/censys-logo.png',
-      dark: '/partners/censys.png'
+      light: '/partners/placeholder-logo.png',
+      dark: '/partners/placeholder-logo-white.png'
     },
-    link: 'https://censys.com/',
+    link: 'https://www.linkedin.com/in/iliushin/',
+    isPlaceholder: true
   },
   {
     name: 'ELLIO',
@@ -35,7 +36,7 @@ const sponsors: Sponsor[] = [
     <div class="sponsors-card">
       <div class="sponsors-grid">
         {sponsors.map((sponsor) => (
-          <div class="sponsor-card">
+          <div class={`sponsor-card ${sponsor.isPlaceholder ? 'placeholder' : ''}`}>
             <div class="logo-container">
               <a href={sponsor.link} target="_blank" rel="noopener" class="logo-link">
                 <div class="logo-wrapper">
@@ -50,6 +51,9 @@ const sponsors: Sponsor[] = [
                       alt={sponsor.name}
                       class="sponsor-logo logo-dark"
                     />
+                  )}
+                  {sponsor.isPlaceholder && (
+                    <div class="placeholder-text">Your Company Here</div>
                   )}
                 </div>
               </a>
@@ -124,6 +128,12 @@ const sponsors: Sponsor[] = [
     transition: transform 0.3s ease;
   }
 
+  .sponsor-card.placeholder {
+    border: 2px dashed var(--pink);
+    border-radius: var(--border-radius);
+    background: rgba(var(--pink-rgb), 0.05);
+  }
+
   .sponsor-card:hover {
     transform: translateY(-2px);
   }
@@ -152,6 +162,18 @@ const sponsors: Sponsor[] = [
     justify-content: center;
   }
 
+  .placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--pink);
+    text-align: center;
+    width: 100%;
+  }
+
   .sponsor-logo {
     position: absolute;
     top: 50%;
@@ -174,6 +196,10 @@ const sponsors: Sponsor[] = [
 
   :global([data-theme="dark"]) .logo-dark {
     opacity: 1;
+  }
+
+  .placeholder .sponsor-logo {
+    display: none;
   }
 
   /* CTA Button styles */
@@ -219,6 +245,10 @@ const sponsors: Sponsor[] = [
       height: 60px;
       max-width: 200px;
     }
+
+    .placeholder-text {
+      font-size: 1.25rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -236,6 +266,10 @@ const sponsors: Sponsor[] = [
 
     h2 {
       font-size: 2rem;
+    }
+
+    .placeholder-text {
+      font-size: 1rem;
     }
   }
 </style>
