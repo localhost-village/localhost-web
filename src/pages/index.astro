@@ -24,59 +24,45 @@ const upcomingEvents = [
 const teamMembers = [
   // Add actual team members here
   {
+    name: "Danny Henderson Jr.",
+    company: "Novartis",
+    picture: "/team/dh.png",
+    linkedIn: "https://www.linkedin.com/in/danny-henderson-jr-77970192/"
+  },
+  {
+    name: "Ondřej Hummel",
+    picture: "/team/oh.jpg",
+    company: "CTU",
+    linkedIn: "https://www.linkedin.com/in/ond%C5%99ej-hummel-a2a4622a2/"
+  },
+  {
+    name: "Lukáš Kavalír",
+    linkedIn: "https://www.linkedin.com/in/luk%C3%A1%C5%A1-k-a7612a326/"
+  },
+  {
+    name: "Vlad Iliushin",
+    company: "ELLIO",
+    picture: "/team/vi.png",
+    linkedIn: "https://www.linkedin.com/in/iliushin/"
+  },
+  {
+    name: "Daniel B.",
+    picture: "/team/db.jpeg",
+    company: "Mycroft Mind",
+    linkedIn: "https://www.linkedin.com/in/danielbdot/"
+  },
+  {
     name: "E Waber",
     company: "ALEF CZ",
     picture: "/team/ew.png",
     linkedIn: "https://www.linkedin.com/in/e-waber-94950b223/"
   },
-   {
-      name: "Marko Zbirka",
-      company: "AI EdgeLabs",
-      picture: "/team/mz.png",
-      linkedIn: "https://www.linkedin.com/in/marko-zbirka-ba4566b1/"
-    },
-    {
-    name: "Daniel B.",
-    picture: "/team/db.jpeg",
-    company: "Mycroft Mind",
-    linkedIn: "https://www.linkedin.com/in/danielbdot/"
-    },
-     {
-        name: "Danny Henderson Jr.",
-        company: "Novartis",
-        picture: "/team/dh.png",
-        linkedIn: "https://www.linkedin.com/in/danny-henderson-jr-77970192/"
-      },
-    {
-        name: "Vlad Iliushin",
-        company: "ELLIO",
-        picture: "/team/vi.png",
-        linkedIn: "https://www.linkedin.com/in/iliushin/"
-      },
-      {
-          name: "Darina Shutko",
-          company: "Corpus Solutions",
-          picture: "/team/ds.jpg",
-          linkedIn: "https://www.linkedin.com/in/darina-shutko/"
-        },
-        {
-        name: "Ondřej Hummel",
-        picture: "/team/oh.jpg",
-        company: "CTU",
-        linkedIn: "https://www.linkedin.com/in/ond%C5%99ej-hummel-a2a4622a2/"
-        },
-
-         {
-            name: "Diana Průšová",
-            picture: "/team/dp.jpg",
-            linkedIn: "https://www.linkedin.com/in/diana-prusova/"
-         },
-        {
-        name: "Lukáš Kavalír",
-        linkedIn: "https://www.linkedin.com/in/luk%C3%A1%C5%A1-k-a7612a326/"
-
-        },
-
+  {
+    name: "Marko Zbirka",
+    company: "AI EdgeLabs",
+    picture: "/team/mz.png",
+    linkedIn: "https://www.linkedin.com/in/marko-zbirka-ba4566b1/"
+  }
 ];
 
 const partners = [
@@ -100,7 +86,7 @@ const partners = [
 
 const activities = [
   {
-    title: "Hackerdy",
+    title: "Hackers Jeopardy",
     description: "\"Hackers Answer In The Form Of A Question\" - A competitive activity that encourages learning and showcases the range of participants' expertise.",
     imageUrl: "/activities/hackers_jeopardy.png",
     button: {
@@ -108,21 +94,11 @@ const activities = [
       link: "https://docs.google.com/forms/d/e/1FAIpQLSeI9_07J9M8Vrkcvdgdw7G4tlkbRk98nLtMDDFUAu170wwoWQ/viewform"
     }
   },
-
   {
-    title: "Ethernet Master",
+    title: "Cable Crimping",
     description: "A cable crimping contest offering hands-on experience. Everyone can participate - unless it's CAT8! Put your technical skills to the test in this time-based challenge.",
     imageUrl: "/activities/ethernet_master.png"
-  },
-       {
-      title: "Hot Takes",
-      description: "Dare to face the heat! Join ELLIO as you share your spiciest cybersecurity opinions while sampling progressively hotter sauces. Ten levels of heat await - can your takes stand up to the challenge? Warning: your tongue might regret this, but your stories will be legendary",
-      imageUrl: "/activities/hot_takes.jpg",
-      button: {
-        text: "Call for Hot Takes",
-        link: "https://app.sli.do/event/mowSK4igPhNZNNLchPzsME/live/questions"
-      }
-    },
+  }
 ];
 
 const partner_activities = [
@@ -164,6 +140,242 @@ const partner_activities = [
       </div>
     </section>
 
+    <!-- Alternative 1: Clean Schedule with Card Styling -->
+    <section class="schedule schedule-alt1">
+      <div class="container">
+        <h2>Schedule</h2>
+        <p class="section-intro">BSides Prague 2025 | April 3-4</p>
+        <p class="location-info">Find LocalHost Village at the Experimentarium @ BSides Prague</p>
+        
+        <div class="simple-schedule">
+          <div class="day-container cyber-card">
+            <div class="cyber-card-border"></div>
+            <h3 class="day-header">Day 1 <span class="cyber-brackets">[</span>April 3<span class="cyber-brackets">]</span></h3>
+            
+            <div class="activity-container">
+              <div class="activity-title"><i class="cyber-icon">⚡</i> Hackers Jeopardy</div>
+              <div class="sessions">
+                <div class="session jeopardy cyber-panel">
+                  <div class="session-time">11:00 - 12:00</div>
+                  <div class="session-name">Morning Session</div>
+                  <div class="session-note">Please register with LHV staff to play</div>
+                </div>
+                <div class="session jeopardy cyber-panel">
+                  <div class="session-time">15:30 - 16:30</div>
+                  <div class="session-name">Afternoon Session</div>
+                  <div class="session-note">Please register with LHV staff to play</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="activity-container">
+              <div class="activity-title"><i class="cyber-icon">⚙️</i> Cable Crimping</div>
+              <div class="sessions">
+                <div class="session crimping cyber-panel">
+                  <div class="session-time">10:00 - 17:00</div>
+                  <div class="session-name">All Day</div>
+                  <div class="session-note">Drop by anytime to test your skills!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="day-container cyber-card">
+            <div class="cyber-card-border"></div>
+            <h3 class="day-header">Day 2 <span class="cyber-brackets">[</span>April 4<span class="cyber-brackets">]</span></h3>
+            
+            <div class="activity-container">
+              <div class="activity-title"><i class="cyber-icon">⚡</i> Hackers Jeopardy</div>
+              <div class="sessions">
+                <div class="session jeopardy cyber-panel">
+                  <div class="session-time">11:00 - 12:00</div>
+                  <div class="session-name">Morning Session</div>
+                  <div class="session-note">Please register with LHV staff to play</div>
+                </div>
+                <div class="session jeopardy cyber-panel">
+                  <div class="session-time">15:30 - 16:30</div>
+                  <div class="session-name">Afternoon Session</div>
+                  <div class="session-note">Please register with LHV staff to play</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="activity-container">
+              <div class="activity-title"><i class="cyber-icon">⚙️</i> Cable Crimping</div>
+              <div class="sessions">
+                <div class="session crimping cyber-panel">
+                  <div class="session-time">10:00 - 17:00</div>
+                  <div class="session-name">All Day</div>
+                  <div class="session-note">Drop by anytime to test your skills!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Alternative 2: Activity-Card Style -->
+    <section class="schedule schedule-alt2" style="display:none">
+      <div class="container">
+        <h2>Schedule</h2>
+        <p class="section-intro">BSides Prague 2025 | April 3-4</p>
+        <p class="location-info">Find LocalHost Village at the Experimentarium @ BSides Prague</p>
+        
+        <div class="event-days">
+          <div class="event-day">
+            <h3 class="day-title">Day 1 <span class="day-date">[April 3]</span></h3>
+            <div class="schedule-cards">
+              <div class="schedule-card pink">
+                <div class="card-header">
+                  <div class="time">11:00 - 12:00</div>
+                  <h4>Hackers Jeopardy</h4>
+                </div>
+                <div class="card-content">
+                  <p>Morning Session</p>
+                  <p class="card-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="schedule-card pink">
+                <div class="card-header">
+                  <div class="time">15:30 - 16:30</div>
+                  <h4>Hackers Jeopardy</h4>
+                </div>
+                <div class="card-content">
+                  <p>Afternoon Session</p>
+                  <p class="card-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="schedule-card green">
+                <div class="card-header">
+                  <div class="time">10:00 - 17:00</div>
+                  <h4>Cable Crimping</h4>
+                </div>
+                <div class="card-content">
+                  <p>All Day</p>
+                  <p class="card-note">Drop by anytime to test your skills!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="event-day">
+            <h3 class="day-title">Day 2 <span class="day-date">[April 4]</span></h3>
+            <div class="schedule-cards">
+              <div class="schedule-card pink">
+                <div class="card-header">
+                  <div class="time">11:00 - 12:00</div>
+                  <h4>Hackers Jeopardy</h4>
+                </div>
+                <div class="card-content">
+                  <p>Morning Session</p>
+                  <p class="card-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="schedule-card pink">
+                <div class="card-header">
+                  <div class="time">15:30 - 16:30</div>
+                  <h4>Hackers Jeopardy</h4>
+                </div>
+                <div class="card-content">
+                  <p>Afternoon Session</p>
+                  <p class="card-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="schedule-card green">
+                <div class="card-header">
+                  <div class="time">10:00 - 17:00</div>
+                  <h4>Cable Crimping</h4>
+                </div>
+                <div class="card-content">
+                  <p>All Day</p>
+                  <p class="card-note">Drop by anytime to test your skills!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Alternative 3: Timeline Style -->
+    <section class="schedule schedule-alt3" style="display:none">
+      <div class="container">
+        <h2>Schedule</h2>
+        <p class="section-intro">BSides Prague 2025 | April 3-4</p>
+        <p class="location-info">Find LocalHost Village at the Experimentarium @ BSides Prague</p>
+        
+        <div class="timeline-container">
+          <div class="timeline-day">
+            <h3 class="timeline-day-header">Day 1 [April 3]</h3>
+            <div class="timeline">
+              <div class="timeline-event jeopardy">
+                <div class="timeline-time">11:00 - 12:00</div>
+                <div class="timeline-content">
+                  <h4>Hackers Jeopardy</h4>
+                  <p>Morning Session</p>
+                  <p class="timeline-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="timeline-event jeopardy">
+                <div class="timeline-time">15:30 - 16:30</div>
+                <div class="timeline-content">
+                  <h4>Hackers Jeopardy</h4>
+                  <p>Afternoon Session</p>
+                  <p class="timeline-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="timeline-event crimping all-day">
+                <div class="timeline-time">10:00 - 17:00</div>
+                <div class="timeline-content">
+                  <h4>Cable Crimping</h4>
+                  <p>All Day</p>
+                  <p class="timeline-note">Drop by anytime to test your skills!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-day">
+            <h3 class="timeline-day-header">Day 2 [April 4]</h3>
+            <div class="timeline">
+              <div class="timeline-event jeopardy">
+                <div class="timeline-time">11:00 - 12:00</div>
+                <div class="timeline-content">
+                  <h4>Hackers Jeopardy</h4>
+                  <p>Morning Session</p>
+                  <p class="timeline-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="timeline-event jeopardy">
+                <div class="timeline-time">15:30 - 16:30</div>
+                <div class="timeline-content">
+                  <h4>Hackers Jeopardy</h4>
+                  <p>Afternoon Session</p>
+                  <p class="timeline-note">Please register with LHV staff to play</p>
+                </div>
+              </div>
+              
+              <div class="timeline-event crimping all-day">
+                <div class="timeline-time">10:00 - 17:00</div>
+                <div class="timeline-content">
+                  <h4>Cable Crimping</h4>
+                  <p>All Day</p>
+                  <p class="timeline-note">Drop by anytime to test your skills!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -174,12 +386,6 @@ const partner_activities = [
         </div>
         </section>
 
-<!-- Technical Sponsor Section -->
-<section class="activities">
-      <div class="container">
-        <TechnicalSponsorSection />
-        </div>
-        </section>
 <!--
 <section class="sponsorship">
   <div class="container">
@@ -265,6 +471,13 @@ const partner_activities = [
       </div>
     </section>
 
+    <!-- Technical Sponsor Section -->
+    <section class="activities">
+      <div class="container">
+        <TechnicalSponsorSection />
+      </div>
+    </section>
+
     <!-- Volunteer Section -->
 
 <section class="join-team">
@@ -298,12 +511,19 @@ const partner_activities = [
 
   .events-grid,
   .activities-grid,
-  .team-grid,
   .partners-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-md);
     padding: 0 var(--spacing-sm);
+  }
+  
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+    justify-content: center;
   }
 
   .sponsorship {
@@ -481,9 +701,419 @@ const partner_activities = [
     gap: var(--spacing-md);
   }
 
-  @media (max-width: 640px) {
-    .events {
-      padding: var(--spacing-md) var(--spacing-sm);
+  /* Cyber Styles */
+  /* Cyber accent element classes */
+  .cyber-brackets {
+    color: var(--blue);
+    font-weight: normal;
+    opacity: 0.9;
+  }
+  
+  .cyber-icon {
+    display: inline-block;
+    margin-right: 5px;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  
+  /* Simple Schedule Styles */
+  .schedule {
+    padding: var(--spacing-lg) 0;
+    position: relative;
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 0.5rem;
+    color: var(--text);
+    font-size: 1.2rem;
+  }
+
+  :global([data-theme="dark"]) .section-intro {
+    color: #ffffff;
+  }
+  
+  .location-info {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--pink);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  :global([data-theme="dark"]) .location-info {
+    color: var(--pink);
+  }
+  
+  .simple-schedule {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .day-container {
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  /* Cyber card styling */
+  .cyber-card {
+    position: relative;
+    border: 2px solid var(--pink);
+    background-color: rgba(var(--pink-rgb), 0.05);
+    overflow: hidden;
+    box-shadow: none;
+    border-radius: var(--border-radius);
+  }
+  
+  :global([data-theme="dark"]) .cyber-card {
+    background-color: rgba(45, 49, 77, 0.2);
+    border: 2px solid var(--pink);
+  }
+  
+  .cyber-card-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      var(--pink) 0%, 
+      var(--blue) 50%, 
+      var(--green) 100%);
+  }
+  
+  .day-header {
+    color: var(--blue);
+    text-align: center;
+    margin: 0 0 var(--spacing-sm) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+  }
+  
+  :global([data-theme="dark"]) .day-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+  
+  .activity-container {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .activity-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--pink);
+    text-align: center;
+  }
+  
+  :global([data-theme="dark"]) .activity-title {
+    color: var(--pink);
+  }
+  
+  .activity-container:nth-child(2) .activity-title {
+    color: var(--green);
+  }
+  
+  .sessions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .cyber-brackets {
+    color: var(--blue);
+    font-weight: normal;
+    opacity: 0.9;
+  }
+  
+  .cyber-icon {
+    display: inline-block;
+    margin-right: 5px;
+    font-style: normal;
+    vertical-align: middle;
+  }
+  
+  .session {
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  :global([data-theme="dark"]) .session {
+    color: white;
+  }
+  
+  .cyber-panel {
+    position: relative;
+    border: 2px solid;
+  }
+  
+  .session.jeopardy {
+    border-color: var(--pink);
+    background-color: rgba(var(--pink-rgb), 0.05);
+  }
+  
+  .session.crimping {
+    border-color: var(--green);
+    background-color: rgba(var(--green-rgb), 0.05);
+  }
+  
+  .session-time {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--pink);
+    text-align: center;
+  }
+  
+  .crimping .session-time {
+    color: var(--green);
+  }
+  
+  .session-name {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    text-align: center;
+  }
+  
+  .session-note {
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+  
+  /* Alternative Styles */
+  .schedule-alt1 {
+    background-color: transparent;
+  }
+  
+  .schedule-alt1 .session-name,
+  .schedule-alt1 .session-note {
+    text-align: center;
+  }
+  
+  /* Alternative 2: Activity-Card Style */
+  .event-days {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .day-title {
+    color: var(--blue);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+  
+  .day-date {
+    color: var(--blue);
+    font-weight: normal;
+  }
+  
+  .schedule-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .schedule-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .schedule-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  :global([data-theme="dark"]) .schedule-card {
+    background: var(--card-bg);
+  }
+  
+  .schedule-card.pink .card-header {
+    background-color: rgba(var(--pink-rgb), 0.1);
+    border-left: 4px solid var(--pink);
+  }
+  
+  .schedule-card.green .card-header {
+    background-color: rgba(var(--green-rgb), 0.1);
+    border-left: 4px solid var(--green);
+  }
+  
+  .card-header {
+    padding: var(--spacing-sm);
+  }
+  
+  .card-header .time {
+    font-weight: bold;
+    color: var(--pink);
+    margin-bottom: 0.3rem;
+  }
+  
+  .schedule-card.green .card-header .time {
+    color: var(--green);
+  }
+  
+  .card-header h4 {
+    margin: 0;
+  }
+  
+  .card-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .card-content p {
+    margin: 0 0 0.5rem;
+  }
+  
+  .card-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  /* Alternative 3: Timeline Style */
+  .timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .timeline-day-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--blue);
+  }
+  
+  .timeline {
+    position: relative;
+    padding-left: 50px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--pink);
+    opacity: 0.3;
+  }
+  
+  .timeline-event {
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  :global([data-theme="dark"]) .timeline-event {
+    background: var(--card-bg);
+  }
+  
+  .timeline-event::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 15px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--pink);
+    border: 3px solid white;
+  }
+  
+  :global([data-theme="dark"]) .timeline-event::before {
+    border-color: var(--card-bg);
+  }
+  
+  .timeline-event.crimping::before {
+    background: var(--green);
+  }
+  
+  .timeline-event.all-day::before {
+    height: 30px;
+    border-radius: 15px;
+  }
+  
+  .timeline-time {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--pink);
+    margin-bottom: 0.3rem;
+  }
+  
+  .timeline-event.crimping .timeline-time {
+    color: var(--green);
+  }
+  
+  .timeline-content h4 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .timeline-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .day-container {
+      padding: var(--spacing-sm);
+    }
+    
+    .session {
+      padding: var(--spacing-sm) var(--spacing-sm);
+    }
+    
+    .session-time {
+      font-size: 1rem;
+    }
+    
+    .session-name {
+      font-size: 0.95rem;
+    }
+    
+    .session-note {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .activity-title {
+      font-size: 1.1rem;
+    }
+    
+    .session-time {
+      font-size: 0.95rem;
+    }
+    
+    .session-name {
+      font-size: 0.9rem;
+    }
+    
+    .session-note {
+      font-size: 0.75rem;
     }
   }
 </style>

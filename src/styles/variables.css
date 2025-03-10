@@ -1,14 +1,19 @@
 :root {
     --pink: #F72585;
+    --pink-rgb: 247, 37, 133;
     --yellow: #FCBF49;
+    --yellow-rgb: 252, 191, 73;
     --green: #06D6A0;
+    --green-rgb: 6, 214, 160;
     --blue: #00a8ff;
+    --blue-rgb: 0, 168, 255;
     --text: #1a1f36;
     --background: #fafafa;
     --container-width: 1200px;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
     --border-radius: 10px;
     --header-color: var(--pink); /* Unified header color */
     --hero-height: 600px;
